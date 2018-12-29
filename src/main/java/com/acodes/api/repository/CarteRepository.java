@@ -9,7 +9,7 @@ import com.acodes.api.model.Carte;
 
 public interface CarteRepository extends CrudRepository<Carte, Integer>{
 
-	List<Carte> findByNumeroCarte(Carte carte);
+	List<Carte> findByNumeroCarte(int numeroCarte);
 	List<Carte> findByNumeroCarteIn(List<Integer> carte);
 	
 }

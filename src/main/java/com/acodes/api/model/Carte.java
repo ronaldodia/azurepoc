@@ -4,14 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Carte {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-
+	@NotNull
 	private int numeroCarte;
+	@JsonBackReference
+	@ManyToOne
+	private Paiement paiement;
 	private int montant;
 	private boolean status;
 
@@ -41,6 +48,14 @@ public class Carte {
 
 	public int getId() {
 		return id;
+	}
+
+	public Paiement getPaiement() {
+		return paiement;
+	}
+
+	public void setPaiement(Paiement paiement) {
+		this.paiement = paiement;
 	}
 
 }

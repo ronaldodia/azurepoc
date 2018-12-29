@@ -3,11 +3,16 @@ package com.acodes.api.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Paiement {
@@ -16,10 +21,14 @@ public class Paiement {
 	private int id;
 
 	private String codeReference;
+	@NotNull
 	private String fournisseurService;
+	@NotNull
 	private String numeroFacture;
 	private int montantPaye;
-	@OneToMany
+	@NotEmpty
+	@JsonManagedReference
+	@OneToMany(mappedBy="paiement", cascade=CascadeType.ALL)
 	private List<Carte> cartes;
 
 	public String getCodeReference() {
@@ -56,6 +65,14 @@ public class Paiement {
 
 	public int getId() {
 		return id;
+	}
+
+	public List<Carte> getCartes() {
+		return cartes;
+	}
+
+	public void setCartes(List<Carte> cartes) {
+		this.cartes = cartes;
 	}
 
 }
