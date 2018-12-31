@@ -2,10 +2,8 @@ package com.acodes.api.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.EntityNotFoundException;
-import javax.validation.ValidationException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +32,7 @@ public class PaiementService {
 		enleverlesPaiement(paiement.getCartes(),paiement.getMontantPaye());
 		// mettre les id des cartes
 		List<Carte> cartesAvecId = listeCartesParNumero(paiement.getCartes());
-		paiement.setCartes(new ArrayList());
+		paiement.setCartes(new ArrayList<Carte>());
 		// bug: modifier les cartes pour les lier au paiement
 		cartesAvecId.stream().forEach(c -> {
 			c.setPaiement(paiement);
