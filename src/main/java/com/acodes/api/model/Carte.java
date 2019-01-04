@@ -9,17 +9,29 @@ import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import io.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiParam;
+
 @Entity
 public class Carte {
+	
+	@ApiParam(hidden=true)
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@NotNull
+	@ApiModelProperty(required = true)
 	private int numeroCarte;
+	@ApiParam(hidden=true)
+	
 	@JsonBackReference
 	@ManyToOne
 	private Paiement paiement;
+	@ApiParam(hidden=true)
+	
 	private int montant;
+	@ApiParam(hidden=true)
+	
 	private boolean status;
 
 	public int getNumeroCarte() {

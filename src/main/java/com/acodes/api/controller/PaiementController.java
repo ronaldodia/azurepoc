@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,7 @@ public class PaiementController {
 	@Autowired
 	public Validator validator;
 
+	@CrossOrigin(origins = "*", maxAge = 3600)
 	@PostMapping("/payer")
 	public ResponseEntity<Response> payer(@Valid @RequestBody Paiement paiementDTO, Errors errors) {
 		// faire une validation
