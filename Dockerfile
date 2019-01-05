@@ -17,7 +17,7 @@ ARG JAR_FILE=target/acodes-mauritel-api-*.jar
 
 # Add the application's jar to the container
 ADD ${JAR_FILE} acodes-mauritel-api.jar
-#debug purpose
-RUN ls
+#debug purpose 
+RUN ls 
 # Run the jar file 
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","acodes-mauritel-api.jar"]
