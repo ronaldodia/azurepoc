@@ -1,7 +1,7 @@
 # Start with a base image containing Java runtime
 FROM openjdk:8-jdk-alpine
 
-# Add Maintainer Info .
+# Add Maintainer Info
 LABEL maintainer="elhacen.dia@outlook.fr"
 
 # Add a volume pointing to /tmp
