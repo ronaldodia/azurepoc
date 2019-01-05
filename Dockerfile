@@ -13,10 +13,10 @@ EXPOSE 8080
 #RUN maven to build the jar
 RUN mvn clean install
 # The application's jar file
-ARG JAR_FILE=target/acodes-mauritel-api-*.jar
+#ARG JAR_FILE=target/acodes-mauritel-api-*.jar
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} acodes-mauritel-api.jar
+ADD target/acodes-mauritel-api-*.jar acodes-mauritel-api.jar
 #debug purpose 
 RUN ls 
 # Run the jar file 
