@@ -13,11 +13,11 @@ EXPOSE 8080
 #RUN maven to build the jar
 RUN mvn clean install
 # The application's jar file
-ARG JAR_FILE=target/acodes-mauritel-api-0.0.1-SNAPSHOT.jar
+#ARG JAR_FILE=target/acodes-mauritel-api-0.0.1-SNAPSHOT.jar
 #debug purpose 
-RUN ls target
+#RUN ls target
 # Add the application's jar to the container
-COPY target/acodes-mauritel-api-0.0.1-SNAPSHOT.jar acodes-mauritel-api.jar
+#COPY target/acodes-mauritel-api-0.0.1-SNAPSHOT.jar acodes-mauritel-api.jar
 
 # Run the jar file 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","acodes-mauritel-api.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","target/acodes-mauritel-api-0.0.1-SNAPSHOT.jar"]
