@@ -1,6 +1,7 @@
 # Start with a base image containing Java runtime
-FROM openjdk:8-jdk-alpine
+FROM maven:3.6-jdk-10-slim
 
+ADD . .
 # Add Maintainer Info
 LABEL maintainer="elhacen.dia@outlook.fr"
 
@@ -9,7 +10,8 @@ VOLUME /tmp
 
 # Make port 8080 available to the world outside this container
 EXPOSE 8080
-
+#RUN maven to build the jar
+RUN mvn clean package
 # The application's jar file
 ARG JAR_FILE=target/acodes-mauritel-api-*.jar
 
