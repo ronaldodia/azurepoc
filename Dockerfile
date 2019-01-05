@@ -15,7 +15,7 @@ RUN mvn clean install
 # The application's jar file
 ARG JAR_FILE=target/acodes-mauritel-api-0.0.1-SNAPSHOT.jar
 #debug purpose 
-RUN ls 
+RUN ls target
 # Add the application's jar to the container
 COPY target/acodes-mauritel-api-0.0.1-SNAPSHOT.jar acodes-mauritel-api.jar
 
