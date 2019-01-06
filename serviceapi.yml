@@ -6,8 +6,8 @@ metadata:
     app: mauritel
 spec:
   ports:
-  - port: 80
-    targetPort: mauritel-port
+  - port: 8080
+    targetPort: 8080
   selector:
     app: mauritel
   type: LoadBalancer
