@@ -21,11 +21,12 @@ spec:
           requests:
             cpu: 100m
             memory: 100Mi
-      imagePullSecrets:
-      - name: mauritelsdr
         ports:
         - containerPort: 8080
           name: mauritel-port
+      imagePullSecrets:
+      - name: mauritelsdr
+
 ---
 
 apiVersion: extensions/v1beta1
@@ -65,3 +66,4 @@ spec:
     targetPort: 3306
   selector:
     app: mysql
+
