@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mauritel-service
+  labels:
+    app: mauritel-api
+spec:
+  ports:
+  - port: 80
+    targetPort: mauritel-api-port
+  selector:
+    app: mauritel-api
+  type: LoadBalancer
