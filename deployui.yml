@@ -1,0 +1,43 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: mauritel-ui
+  labels:
+    app: mauritel-ui
+spec:
+  selector:
+    matchLabels:
+      app: mauritel-ui
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mauritel-ui
+    spec:
+      containers:
+      - name: mauritel-ui
+        image: acodescr001.azurecr.io/diaabdoul/paybillui
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 8080
+          name: mauritel-ui-port
+      imagePullSecrets:
+      - name: mauritelsdr
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mauritel-ui-svc
+  labels:
+    app: mauritel-ui
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: mauritel-ui
+  type: LoadBalancer
