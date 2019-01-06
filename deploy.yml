@@ -41,12 +41,14 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: mysql:5.6
+        image: acodescr001.azurecr.io/mysql:5.6
         imagePullPolicy: "Always"
         env:
         - name: MYSQL_ROOT_PASSWORD
           value: password
         - name: MYSQL_DATABASE
-          value: operateur  
+          value: operateur
+      imagePullSecrets:
+      - name: mauritelsdr
         ports:
         - containerPort: 3306
