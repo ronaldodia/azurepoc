@@ -1,18 +1,18 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: mauritel-api
+  name: mauritel
   labels:
-    app: mauritel-api
+    app: mauritel
 spec:
   selector:
     matchLabels:
-      app: mauritel-api
-  replicas: 3
+      app: mauritel
+  replicas: 1
   template:
     metadata:
       labels:
-        app: mauritel-api
+        app: mauritel
     spec:
       containers:
       - name: mauritel-api
@@ -23,4 +23,4 @@ spec:
             memory: 100Mi
         ports:
         - containerPort: 8080
-          name: nmauritel-api-port
+          name: mauritel-port
