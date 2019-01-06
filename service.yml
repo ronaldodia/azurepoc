@@ -3,11 +3,11 @@ kind: Service
 metadata:
   name: mauritel-service
   labels:
-    app: mauritel-api
+    app: mauritel
 spec:
   ports:
   - port: 80
-    targetPort: mauritel-api-port
+    targetPort: mauritel-port
   selector:
-    app: mauritel-api
+    app: mauritel
   type: LoadBalancer
