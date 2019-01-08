@@ -11,3 +11,17 @@ spec:
   selector:
     app: mauritel-ui
   type: LoadBalancer
+  ---
+  apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-service
+  labels:
+    app: mysql
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    app: mysql
+
