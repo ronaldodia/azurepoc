@@ -26,6 +26,17 @@ spec:
           name: mauritel-port
       imagePullSecrets:
       - name: mauritelsdr
+      - name: mauritel-ui
+        image: acodescr001.azurecr.io/diaabdoul/paybillui
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 4200
+          name: ui-port
+      imagePullSecrets:
+      - name: mauritelsdr
 
 ---
 
