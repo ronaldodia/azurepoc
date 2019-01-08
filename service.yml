@@ -11,7 +11,7 @@ spec:
   selector:
     app: mauritel-ui
   type: LoadBalancer
-  ---
+---
 apiVersion: v1
 kind: Service
 metadata:
