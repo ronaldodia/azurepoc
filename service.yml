@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mauritel-service
+  name: mauritel-ui-svc
   labels:
-    app: mauritel
+    app: mauritel-ui
 spec:
   ports:
   - port: 80
-    targetPort: mauritel-port
+    targetPort: 4200
   selector:
-    app: mauritel
+    app: mauritel-ui
   type: LoadBalancer
