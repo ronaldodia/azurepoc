@@ -24,4 +24,19 @@ spec:
     targetPort: 3306
   selector:
     app: mysql
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mauritel-api-svc
+  labels:
+    app: mauritel
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: mauritel
+  type: LoadBalancer
+
 
